@@ -3,9 +3,7 @@
 
 name: Go
 
-on:
-  pull_request:
-    branches: [ "master" ]
+on: [push]
 
 jobs:
 
@@ -14,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up Go
+    - name: Setup Go
       uses: actions/setup-go@v4
       with:
         go-version: '1.21'
