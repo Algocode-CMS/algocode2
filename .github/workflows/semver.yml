@@ -1,0 +1,23 @@
+# This workflow will build a golang project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
+
+name: Semver
+
+on: push
+  # pull request:
+  #   branches: [ "master" ]
+
+jobs:
+
+  semver:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Git
+      run: git config --global user.email "ci@algocode.ru" && git config --global user.name "CI/CD"
+
+    - name: Semver
+      run: |
+        VERSION=$(./scripts/semver.sh)
+        echo "Project version is $VESION"
