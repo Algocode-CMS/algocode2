@@ -20,8 +20,10 @@ jobs:
     - name: Build
       run: make
 
-    # - name: Lint
-    #   uses: make lint
+    - name: Lint
+      uses: golangci/golangci-lint-action@v3
+      with:
+        version: v1.55
 
     - name: Test
       run: make test
