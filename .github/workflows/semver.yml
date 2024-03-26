@@ -3,9 +3,9 @@
 
 name: Semver
 
-on: push
-  # pull request:
-  #   branches: [ "master" ]
+on:
+  push:
+    branches: [ "master" ]
 
 jobs:
 
@@ -17,7 +17,8 @@ jobs:
     - name: Setup Git
       run: git config --global user.email "ci@algocode.ru" && git config --global user.name "CI/CD"
 
-    - name: Semver
+    - name: Publish tag
       run: |
         VERSION=$(./scripts/semver.sh)
         echo "Project version is $VERSION"
+        git tag $VERSION -m "Version $VERSION" && git push origin $VERSION
