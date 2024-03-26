@@ -20,4 +20,4 @@ jobs:
     - name: Semver
       run: |
         VERSION=$(./scripts/semver.sh)
-        echo "Project version is $VESION"
+        echo "Project version is $VERSION"
