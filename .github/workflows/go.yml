@@ -12,14 +12,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    # - name: Setup Go
-    #   uses: actions/setup-go@v4
-    #   with:
-    #     go-version: '1.21'
+    - name: Setup Go environment
+      uses: actions/setup-go@v5.0.0
+      with:
+        go-version: '1.21'
 
     # - name: Build
     #   run: make
-    
+
     # - name: Lint
     #   uses: make lint
 
